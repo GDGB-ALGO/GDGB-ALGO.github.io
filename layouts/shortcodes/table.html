@@ -1,0 +1,5 @@
+{{ $file := .Get "file" }}
+{{ $content := readFile (printf "content/en/leaderboard/%s" $file) }}
+<div class="leaderboard-table">
+    {{ $content | markdownify }}
+</div> 

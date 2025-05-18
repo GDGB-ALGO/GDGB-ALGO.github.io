@@ -1,0 +1,30 @@
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  {{ if not .Site.Params.ui.sidebar_search_disable }}
+  <form class="td-sidebar__search d-flex align-items-center">
+    {{ partial "search-input.html" . }}
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  {{ end }}
+
+  <nav class="td-sidebar-nav collapse{{ if .Site.Params.ui.sidebar_search_disable }} td-sidebar-nav--search-disabled{{ end }}{{ if .Site.Params.ui.sidebar_menu_foldable }} foldable-nav{{ end }}" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      
+      <!-- 仅显示 _index.md 的标题和目录结构 -->
+      {{ $indexPage := .CurrentSection }}
+      {{ if $indexPage }}
+      <li class="td-sidebar-nav__section-title td-sidebar-link tree-root" id="index-li">
+        <!-- 标题链接 -->
+        <a href="{{ $indexPage.RelPermalink }}" class="align-left ps-0 td-sidebar-link td-sidebar-link__section active">
+          <span>{{ $indexPage.Title }}</span>
+        </a>
+      </li>
+
+      <div class="toc-container">
+        {{ partial "toc.html" $indexPage }}
+      </div>
+      {{ end }}
+
+    </ul>
+  </nav>
+</div>

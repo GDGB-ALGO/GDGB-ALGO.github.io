@@ -1,0 +1,5 @@
+{{ $file := .Get 0 }}
+{{ $content := readFile }}
+<div class="leaderboard-table">
+    {{ $content | markdownify }}
+</div> 
