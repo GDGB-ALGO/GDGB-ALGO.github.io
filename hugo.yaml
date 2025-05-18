@@ -1,5 +1,5 @@
-baseURL: https://tgb-seq.github.io/
-title: TGB-Seq Benchmark
+baseURL: https://gdgb-algo.github.io/
+title: Generative DyTAG Benchmark
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
 
@@ -46,7 +46,7 @@ imaging:
 languages:
   en:
     languageName: English
-    title: TGB-Seq Benchmark
+    title: Generative DyTAG Benchmark
     params:
       description: A Docsy example site
   # cSpell:disable
