@@ -1,10 +1,10 @@
 ---
-title: TGB-Seq
+title: GDGB
 ---
 
 {{< blocks/cover title="TGB-Seq: Temporal Graph Benchmark with Sequential Dynamics" image_anchor="top" height="min" center_image="/images/full_logo.svg" >}}
 <div class="mx-auto text-center">
-    <p class="lead mt-3 description">A comprehensive collection of eight benchmark datasets for evaluating future link prediction models.</p>
+    <p class="lead mt-3 description">GDGB: A Benchmark for Generative Dynamic Text-Attributed Graph Learning.</p>
     <p class="lead">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSchjDliqcIO2FYY0qmjenHcLSNvqa-0poV1PrbRGph2XwZ8RA/viewform" class="submit-link">
             Submit Your Model Results <i class="fas fa-arrow-right"></i>
