@@ -1,3 +1,3 @@
-# TGB-Seq Website
+# GDGB
 
-This is the website for the [TGB-Seq Benchmark](https://openreview.net/forum?id=8e2LirwiJT).
+This is the website for the GDGB.
