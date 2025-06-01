@@ -2,7 +2,7 @@
 title: GDGB
 ---
 
-{{< blocks/cover title="TGB-Seq: Temporal Graph Benchmark with Sequential Dynamics" image_anchor="top" height="min" center_image="/images/full_logo.svg" >}}
+{{< blocks/cover title="GDGB: A Benchmark for Generative Dynamic Text-Attributed Graph Learning" image_anchor="top" height="min" center_image="/images/GDGB.svg" >}}
 <div class="mx-auto text-center">
     <p class="lead mt-3 description">GDGB: A Benchmark for Generative Dynamic Text-Attributed Graph Learning.</p>
     <p class="lead">
