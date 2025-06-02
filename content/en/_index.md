@@ -20,29 +20,29 @@ title: GDGB
                 <div class="feature-box">
                     <div class="text-center mb-3">
                         <i class="fas fa-network-wired fa-3x"></i>
-                        <h3 class="mt-3">Challenging Datasets</h3>
+                        <h3 class="mt-3">High-quality Datasets</h3>
                     </div>
-                    <p class="feature-text">TGB-Seq offers datasets curated from diverse real-world dynamic interaction systems, inherently featuring intricate sequential dynamics and fewer repeated edges.</p>
+                    <p class="feature-text">GDGB comprises eight carefully selected and rigorously processed DyTAG datasets covering various domains. The nodes and edges in all datasets are endowed with rich semantic textual information to support DyTAG generation tasks. </p>
                     <a class="btn btn-secondary" href="/datasets/">View Datasets</a>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="feature-box">
                     <div class="text-center mb-3">
-                        <i class="fas fa-rocket fa-3x"></i>
-                        <h3 class="mt-3">Quick Start</h3>
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <h3 class="mt-3">Tasks & Metrics</h3>
                     </div>
-                    <p class="feature-text">TGB-Seq is available as a convenient pip package, offering seamless access to dataset downloading, negative sample generation and evaluation. We provide a quick-start example built on DyGLib, enabling easy integration.</p>
-                    <a class="btn btn-secondary" href="/get-started/">Get Started</a>
+                    <p class="feature-text">GDGB introduces two novel DyTAG generation tasks: Transductive Dynamic Graph Generation (TDGG) and Inductive Dynamic Graph Generation (IDGG). Besides, we design multifaceted evaluation protocols, including: 1) Graph Structural Metric, 2) Textual Quality Metric, and 3) Graph Embedding Metric.</p>
+                    <a class="btn btn-secondary" href="/get-started/">View Details</a>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="feature-box">
                     <div class="text-center mb-3">
-                        <i class="fas fa-chart-line fa-3x"></i>
-                        <h3 class="mt-3">Unified Evaluation</h3>
+                        <i class="fas fa-rocket fa-3x"></i>
+                        <h3 class="mt-3">Generative Framework</h3>
                     </div>
-                    <p class="feature-text">TGB-Seq adopts a standardized evaluation protocol with fixed dataset splits, generating 100 negative samples per test instance and computing the MRR metric for consistent and reliable performance assessment.</p>
+                    <p class="feature-text">We propose GAG-General, an LLM-based multi-agent framework tailored for DyTAG generation tasks. Furthermore, we implement both TDGG and IDGG tasks within GAG-General, integrating the proposed holistic evaluation metrics to ensure reproducible DyTAG generation and robust benchmarking for future baselines.</p>
                     <a class="btn btn-secondary" href="/leaderboard/">View Leaderboards</a>
                 </div>
             </div>
