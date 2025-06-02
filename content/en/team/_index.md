@@ -10,7 +10,7 @@ menu:
 
 <div class="team-section">
   <h2 class="section-title text-center">GDGB Team</h2>
-  <p class="text-center mb-4">For any questions or assistance, please contact us at <a href="mailto:peng_jie@ruc.edu.cn">peng_jie@ruc.edu.cn</a>.</p>
+  <p class="text-center mb-4">For any questions or assistance, please contact us at <a href="peng_jie@ruc.edu.cn">peng_jie@ruc.edu.cn</a>.</p>
   <div class="team-container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 team-row">
       <div class="col">
@@ -45,12 +45,11 @@ menu:
           <img src="/images/team/weizhewei.jpg" class="card-img-top rounded" alt="Zhewei Wei">
           <div class="card-body px-0">
             <h4 class="card-title mb-1"><a href="https://weizhewei.com" class="text-primary">Zhewei Wei</a></h4>
-            <p class="card-text">Université de Montréal</p>
+            <p class="card-text">Renmin University</p>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
