@@ -27,7 +27,7 @@ title: GDGB
             <div class="col-lg-4 mb-4">
                 <div class="feature-box">
                     <div class="text-center mb-3">
-                        <i class="fa-solid fa-vector-polygon icon-blue"></i>
+                        <i class="fa-solid fa-vector-square icon-blue"></i>
                         <h3 class="mt-3">High-quality Datasets</h3>
                     </div>
                     <p class="feature-text" style="text-align: justify;">GDGB comprises eight carefully selected and rigorously processed DyTAG datasets covering various domains. The nodes and edges in all datasets are endowed with rich semantic textual information to support DyTAG generation tasks. </p>

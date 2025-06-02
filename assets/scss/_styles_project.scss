@@ -3,6 +3,11 @@
     background-color: white;
     min-height: 4rem;
     padding-right: 40px;
+
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
     
     .navbar-brand {
         .navbar-logo {
@@ -13,7 +18,7 @@
             display: none; // 
         }
 
-        padding-left: 1px;  // Adjust this value to move logo right
+        padding-left: 0px;  // Adjust this value to move logo right
     }
 
     // Direct styling for navbar elements

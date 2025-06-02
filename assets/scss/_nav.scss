@@ -32,6 +32,10 @@
 
   .navbar-brand {
     text-transform: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    text-transform: none;
 
     &__name {
       font-weight: $font-weight-bold;
@@ -39,7 +43,7 @@
 
     svg {
       display: inline-block;
-      margin: 0 10px;
+      margin: 10px;
       height: 30px;
     }
   }
