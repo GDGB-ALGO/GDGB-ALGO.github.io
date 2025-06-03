@@ -6,7 +6,7 @@ title: GDGB
 <div class="mx-auto text-center">
     <h3 class="mt-3"><b>GDGB</b>: A <b>G</b>enerative <b>D</b>ynamic Text-Attributed <b>G</b>raph <b>B</b>enchmark.</h3>
     <p class="lead">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSchjDliqcIO2FYY0qmjenHcLSNvqa-0poV1PrbRGph2XwZ8RA/viewform" class="submit-link">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsG32hKpG5Xn2hc2FdWrTW8R9DuYU-i7PfdqVHVUsF6C_CPA/viewform" class="submit-link" target="_blank">
             Submit Your Model Results <i class="fa-solid fa-arrow-right"></i>
         </a>
     </p>
@@ -33,7 +33,7 @@ title: GDGB
                         <h3 class="mt-3">Tasks & Metrics</h3>
                     </div>
                     <p class="feature-text" style="text-align: justify;">GDGB introduces two novel DyTAG generation tasks: Transductive Dynamic Graph Generation (TDGG) and Inductive Dynamic Graph Generation (IDGG). Additionally, to ensure holistic evaluation, we design multifaceted metrics that jointly consider topological patterns, temporal dynamics, and semantic quality.</p>
-                    <a class="btn btn-secondary" href="/get-started/">View Details</a>
+                    <a class="btn btn-secondary" href="https://github.com/Lucas-PJ/GDGB-ALGO" target="_blank">View Details</a>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
