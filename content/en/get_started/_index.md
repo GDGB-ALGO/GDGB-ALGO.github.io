@@ -5,72 +5,161 @@ menu: {main: {weight: 05}}
 show_toc: true
 ---
 
-## Overview
-TGB-Seq comprises eight temporal graph datasets that exhibit intricate sequential dynamics inherently. It provides both a dataloader and an evaluator for ease of use. The dataloader manages automatic downloading and preprocessing, and the evaluator provides standardized evaluation with fixed negative samples and metrics.
-## Install
+### Overview
+Dynamic Text-Attributed Graphs (DyTAGs), which intricately integrate structural, temporal, and textual attributes, are crucial for modeling complex real-world systems.
+However, most of the existing DyTAG datasets exhibit poor textual quality, which severely limits their utility for DyTAG generation tasks requiring semantically rich inputs.
+Additionally, prior work mainly focus on discriminative tasks on DyTAGs, resulting in a lack of standardized task formulations and evaluation protocols tailored for DyTAG generation.
+To address these critical issues, we propose the first **G**enerative **D**yTA**G** **B**enchmark (GDGB), which comprises eight meticulously curated DyTAG datasets with high-quality textual features for both nodes and edges, overcoming limitations of prior datasets.
+Building on GDGB, we define two novel DyTAG generation tasks: Transductive Dynamic Graph Generation (TDGG) and Inductive Dynamic Graph Generation (IDGG). 
+TDGG transductively generates a target DyTAG based on the given source and destination node sets, while the more challenging IDGG introduces new node generation to inductively model the dynamic expansion of real-world graph data. 
+To enable holistic evaluation, we design multifaceted metrics that assess the structural, temporal, and textual quality of the generated DyTAGs.
+We further propose GAG-General, an LLM-based multi-agent generative framework tailored for reproducible and robust benchmarking of DyTAG generation.
+Experimental results demonstrate that GDGB enables rigorous evaluation of TDGG and IDGG, with key insights revealing the critical interplay of structural and textual features in DyTAG generation. 
+These findings establish GDGB as a foundational resource for advancing generative DyTAG research and unlocking further practical applications in DyTAG generation. 
 
-You can install TGB-Seq using Python package manager pip.
+### Benchmark Instructions for GAG-General Framework
 
-```shell
-pip install tgb-seq
+**1. Prepare Experimental Environment**
+
+create a virtual environment for LLMGraph
+```cmd
+    conda env create -f LLMGraph_environment.yml
+    conda activate LLMGraph
 ```
 
-#### Requirements
-
-- Python>=3.9
-- numpy>2.0
-- pandas>=2.2.3
-- huggingface-hub>=0.26.0
-- torch>=2.5.0
-
-
-## Package Usage
-
-### Quick Start
-Get started with TGB-Seq using this quick-start example built on [DyGLib](https://github.com/yule-BUAA/DyGLib). Just follow the commands below to begin your journey with TGB-Seq! 🚀🚀🚀
-
-```shell
-pip install tgb-seq
-git clone git@github.com:TGB-Seq/TGB-Seq.git
-cd examples
-python train_link_prediction.py --dataset_name GoogleLocal --model_name DyGFormer --patch_size 2 --max_input_sequence_length 64 --gpu 0 --batch_size 200 --dropout 0.1 --sample_neighbor_strategy recent
+pip install agentscope\[distributed\] v0.0.4 from https://github.com/modelscope/agentscope/
+```cmd
+    git clone https://github.com/modelscope/agentscope/
+    git reset --hard 1c993f9
+    # From source
+    pip install -e .[distribute]
 ```
 
-To submit your results to the [TGB-Seq leaderboard](https://TGB-Seq.github.io/leaderboard/), please fill in this [Google Form](https://forms.gle/dbhX8vVNzVTLU9pL8).
+**2. Prepare GDGB Dataset**
 
+Our proposed GDGB comprises eight carefully selected and rigorously processed DyTAG datasets, hosted through a **[private anonymous link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)** on Kaggle, covering domains such as e-commerce recommendations, social networks, biographies of celebrities, citation networks, and movie collaboration networks. All datasets include nodes and edges endowed with rich semantic textual information. Thus, the newly proposed datasets resolve many key problems associated with previous dynamic graph datasets, such as poor quality of textual features, which subsequently results in the inability to support DyTAG generation tasks. For more details of our datasets, please see our submitted manuscript.
 
-### Dataloader
+To get our GDGB datasets from **[private anonymous link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)**, please firstly click “Download” and choose “Download dataset as zip”, then put the datasets at GDGB/GDGB_dataset and unzip it.
+For each GDGB dataset, it contains two csv files (node_{datase_tname}.csv and edge_{dataset_name}.csv).
 
-For example, to load the Flickr dataset to `./data/`, run the following code:
-```python
-from tgb_seq.LinkPred.dataloader import TGBSeqLoader
-data=TGBSeqLoader("Flickr", "./data/")
-```
-Then, Flickr.csv and Flickr_test_ns.npy will be downloaded from Hugging Face automatically into `./data/Flickr/`. The arrays of source nodes, destination nodes, interaction times, negative destination nodes for the test set can be accessed as follows.
-
-```python
-src_node_ids=data.src_node_ids
-dst_node_ids=data.dst_node_ids
-node_interact_times=data.node_interact_times
-test_negative_samples=data.negative_samples
+Format like
+```cmd
+GDGB/GDGB_dataset/Sephora/node_sephora.csv
+GDGB/GDGB_dataset/Sephora/edge_sephora.csv
+...
 ```
 
-If you encounter any network errors when connecting to Hugging Face, you can use the Hugging Face mirror site to download the dataset. To do so, run the following command in your terminal:
-```shell
-export HF_ENDPOINT=https://hf-mirror.com
+**3. LLM Backbone Config**
+
+Set your api key and base url in "TDGG/LLMGraph/llms/default_model_configs.json" and "IDGG/LLMGraph/llms/default_model_configs.json", and format it like:
+```json
+[
+    {
+        "config_name": "gpt-4o-mini-2024-07-18",
+        "model_type": "openai_chat",
+        "model_name": "gpt-4o-mini-2024-07-18",
+        "api_key": "your_api_key",
+        "client_args": {
+            "base_url": "your_base_url"
+        },
+        "generate_args": {
+            "temperature": 0.8,
+            "max_tokens": 2000,
+            "top_p": 0.9,
+            "frequency_penalty": 1.1
+        }
+    },
+    {
+        "config_name": "llama3_70B",
+        "model_type": "openai_chat",
+        "model_name": "llama3_70B",
+        "api_key": "your_api_key",
+        "client_args": {
+            "base_url": "your_base_url"
+        },
+        "generate_args": {
+            "temperature": 0.8,
+            "max_tokens": 2000,
+            "top_p": 0.9,
+            "frequency_penalty": 1.1
+        }
+    },
+]
 ```
 
-We also provide all the TGB-Seq datasets on [Google Drive](https://drive.google.com/drive/folders/1qoGtASTbYCO-bSWAzSqbSY2YgHr9hUhK?usp=sharing) and their original datasets [here](https://drive.google.com/drive/folders/1_WkYtmpGtxxf2XzzLlOzyzn6WUFkiGD-?usp=sharing).
+**4. Experimental Config**
+Before running experiments, please check the configuration in "TDGG/LLMGraph/tasks/general/configs/{dataset_name}/config.yaml" or "IDGG/LLMGraph/tasks/general/configs/{dataset_name}/config.yaml".
 
-### Evaluator
-Up to now, all the TGB-Seq datasets are evaluated by the MRR metric. The evaluator takes `positive_probabilities` with size as `(batch_size,)` and `negative_probabilities` with size as `(batch_size x number_of_negatives)` as inputs and outputs the rank of eash positive sample with size as `(batch_size)`.
-```python
-from tgb_seq.LinkPred.evaluator import Evaluator 
-evaluator=Evaluator()
-# For the MRR metric, this will return a list of rank, 
-# each represents the rank of one positive sample.
-result_dict=evaluator.eval(positive_probabilities,negative_probabilities)
+Specifically, *start_edge* denotes the size of the seed DyTAG, *edge_delta* denotes the size of edge generation for each round, and *end_edge* denotes the target size of generated DyTAG. model_config_name denotes the used LLM backbone. For IDGG, *new_nodes_generation* configures the size of node generation for each round. For more implementation details, please see our submitted manuscript.
+
+**5. Run TDGG/IDGG**
+
+- Start the launcher in one terminal:
+
+Example of running TDGG on sephora:
+```cmd
+cd TDGG
+python start_launchers.py --launcher_num 20 --launcher_save_path "LLMGraph/llms/launcher_info_sephora_tdgg.json"
 ```
 
-## Citing TGB-Seq
-If you use TGB-Seq datasets, please cite [our paper](https://openreview.net/forum?id=8e2LirwiJT).
+Example of running IDGG on sephora:
+```cmd
+cd IDGG
+python start_launchers.py --launcher_num 20 --launcher_save_path "LLMGraph/llms/launcher_info_sephora_idgg.json"
+```
+
+- Start DyTAG generation in another terminal:
+
+Example of running TDGG on sephora:
+```cmd
+cd TDGG
+python main.py --task general --config sephora --build --launcher_save_path "LLMGraph/llms/launcher_info_sephora_tdgg.json"
+
+```
+
+Example of running IDGG on sephora:
+```cmd
+cd IDGG
+python main.py --task general --config sephora --build --launcher_save_path "LLMGraph/llms/launcher_info_sephora_idgg.json"
+
+```
+
+Or you optionaly use reflection mechanism in another terminal:
+```cmd
+python main.py --task general --config sephora_re --build --launcher_save_path "LLMGraph/llms/launcher_info_sephora_tdgg.json"
+
+```
+
+The generated DyTAGs are saved at "TDGG/LLMGraph/tasks/general/configs/{dataset_name}/generated_data" or "IDGG/LLMGraph/tasks/general/configs/{dataset_name}/generated_data".
+
+**5. Evaluate the Quality of DyTAG Generation**
+
+- Start the evaluation launcher in one terminal:
+
+```cmd
+cd TDGG
+python start_launchers.py --launcher_num 20 --launcher_save_path "LLMGraph/llms/launchers_general_eval.json"
+
+```
+
+Example of evaluating TDGG on sephora:
+```cmd
+cd TDGG
+bash evaluate.sh
+```
+
+Example of evaluating IDGG on sephora:
+```cmd
+cd IDGG
+bash evaluate.sh
+```
+
+The evaluation results on graph structure, textual quality, and graph embedding are saved at "evaluate/general/graph_structural_results", "evaluate/general/textual_quality_results", and "evaluate/general/graph_embedding_results".
+
+
+### Acknowledge
+
+Thanks to the authors of [GAG](https://arxiv.org/abs/2410.09824), [VRDAG](https://arxiv.org/abs/2412.08810), [DG-Gen](https://arxiv.org/abs/2412.15582), and [JL-Metric](https://arxiv.org/abs/2503.01720) for making their project codes publicly available. 
+
+### Citing GDGB
+If you use GDGB datasets, please cite [our paper]().

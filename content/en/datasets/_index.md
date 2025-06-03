@@ -3,86 +3,72 @@ title: Datasets
 linkTitle: Datasets
 menu: {main: {weight: 10}}
 ---
-## ML-20M 
-**Graph**: `ML-20M`[1] is a widely used benchmark dataset in recommendation research, derived from the MovieLens website. It contains movie rating data, where each record includes the rating score of a user, ranging from 1 to 5, for a specific movie along with the timestamp of the rating. While the ratings represent explicit feedback, we transform this data into implicit feedback for our analysis, following [2]. Consequently, the ML-20M network is represented as a bipartite graph where users and movies serve as nodes, and an edge represents a user's rating of a movie at a given time. 
-
-**Task**: The task is to predict whether a given user will interact with a given item at a given time.
+## Sephora
+`Sephora` [1] is a dataset collected from Kaggle, documenting user reviews of beauty and skincare products on the Sephora e-commerce platform. The temporal span of the dataset ranges from August 28, 2008, to March 21, 2023. Specifically, the dataset includes rich textual information about users, such as skin tone, skin type, hair color, eye color, and historical review statistics. 
+Notably, it also contains detailed textual features of beauty products from the Sephora online store, including product and brand names, prices, ingredients, ratings, and all associated attributes, which support the construction of textual features for nodes in this DyTAG. For user reviews of beauty and skincare products, the dataset provides review ratings (ranging from 1 to 5) as edge labels, and detailed textual reviews as edge content. Consequently, the Sephora dataset is represented as a bipartite DyTAG, where users and beauty products serve as nodes with textual features, and an edge represents a user's rating and textual review of a product at a given time.
 
 #### References
-[1] https://grouplens.org/datasets/movielens/20m/
-
-[2] Xiangnan He, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, and Tat-Seng Chua. Neural collaborative filtering. In Proceedings of the 26th international conference on world wide web, pp. 173–182, 2017.
+[1] https://www.kaggle.com/datasets/nadyinky/sephora-products-and-skincare-reviews/
 
 ---
-## Taobao
-**Graph**: `Taobao` [1,2,3,4] is a user behavior dataset derived from the e-commerce platform Taobao. It contains user click data on products from November 25, 2017, to December 3, 2017. The dataset is a bipartite graph where users and products are nodes, and an edge represents a user's click on a product at a given time.
-
-**Task**: The task is to predict whether a given user will interact with a given item at a given time.
+## Dianping
+`Dianping` [1,2,3] is a business review dataset derived from Dianping, a prominent platform for business recommendations (e.g., restaurants), spanning from July 3, 2009, to February 8, 2012. The dataset records Dianping users' historical review statistics, frequently reviewed cities, and detailed business information, including store names, addresses, cuisine styles, average costs, and historical scores. User reviews of businesses include multi-dimensional ratings (e.g., flavor, environment, service) in addition to overall scores (ranging from 0 to 5) as edge labels. 
+Reviews also contain rich textual content and supplementary evaluations for specific items such as recommended dishes or special services, providing extensive edge textual features. The dataset is structured as a bipartite DyTAG, where Dianping users and businesses are nodes with textual features, and an edge represents a user's detailed textual review of a business at a given time.
 
 #### References
-[1] https://tianchi.aliyun.com/dataset/dataDetail?dataId=649
 
-[2] Han Zhu, Xiang Li, Pengye Zhang, Guozheng Li, Jie He, Han Li, and Kun Gai. Learning tree-based deep model for recommender systems. In Proceedings of the 24th ACM SIGKDD international conference on knowledge discovery & data mining, pp. 1079–1088, 2018.
+[1] http://www.dianping.com
 
-[3] Han Zhu, Daqing Chang, Ziru Xu, Pengye Zhang, Xiang Li, Jie He, Han Li, Jian Xu, and Kun Gai. Joint optimization of tree-based index and deep model for recommender systems. Advances in Neural Information Processing Systems, 32, 2019.
+[2] Yongfeng Zhang, Min Zhang, Yiqun Liu, Shaoping Ma, and Shi Feng. Localized matrix factorization for recommendation based on matrix block diagonal forms. In Proceedings of the 22nd International Conference on World Wide Web, WWW ’13, page 1511–1520, New York, NY, USA, 2013. Association for Computing Machinery.
 
-[4] Jingwei Zhuo, Ziru Xu, Wei Dai, Han Zhu, Han Li, Jian Xu, and Kun Gai. Learning optimal tree models under beam search. In International Conference on Machine Learning, pp. 11650–11659. PMLR, 2020.
+[3] Yongfeng Zhang, Guokun Lai, Min Zhang, Yi Zhang, Yiqun Liu, and Shaoping Ma. Explicit factor models for explainable recommendation based on phrase-level sentiment analysis. In Proceedings of the 37th International ACM SIGIR Conference on Research & Development in Information Retrieval, SIGIR ’14, page 83–92, New York, NY, USA, 2014. Association for Computing Machinery.
 
 ---
-## Yelp
-**graph**: `Yelp` [1] is a business review dataset sourced from Yelp, a prominent platform for business recommendations, including restaurants, bars, and beauty salons. It contains user reviews of businesses from 2018 to 2022. The dataset is a bipartite graph where users and businesses are nodes, and an edge represents a user's review of a business at a given time.
 
-**Task**: The task is to predict whether a given user will interact with a given item at a given time.
+## WikiRevision
+`WikiRevision` [1] is a dataset cleaned and processed from Wikipedia's official data dumps, recording user revisions and modifications to Wikipedia pages with the selected dumps corresponding to December 1, 2024. The temporal span ranges from January 30, 2001, to December 3, 2024. The dataset includes Wikipedia users' usernames, historical editing statistics, frequently edited pages, and all revised Wikipedia page titles. To enrich textual features for page nodes, we crawl the first paragraph of each corresponding Wikipedia page from Wikipedia. User revisions are categorized into two edge classes (minor vs. non-minor edits), with the accompanying revision comments serving as edge textual features. The dataset is structured as a bipartite DyTAG, where Wikipedia users and pages are nodes with textual features, and an edge represents a user's textual revision summary on a page at a given time.
 
 #### References
-[1] https://www.yelp.com/dataset
+[1] https://dumps.wikimedia.org/enwiki/20241201/
 
 ---
-## GoogleLocal
-**graph**: `GoogleLocal` [1,2] is a business review dataset derived from Google Maps, with a smaller scale compared to Yelp. It contains user reviews and ratings of local businesses. Following the settings for the ML-20M dataset, we treat these ratings as implicit feedback. The GoogleLocal dataset is a bipartite graph where users and businesses are nodes, and an edge indicates a user's review of a business at a given time.
 
-**Task**: The task is to predict whether a given user will interact with a given item at a given time.
+## WikiLife
+`WikiLife` [1] is a dataset derived from Wikipedia's official data dumps, recording historical records of notable individuals being physically present at specific locations. The temporal span ranges from 202 to 2024. The original dataset [1] is extracted from English Wikipedia's biography pages as person-time-location triplets. We extend this by crawling the first paragraphs of corresponding Wikipedia pages for persons and locations as extra textual features. Additionally, we utilize 24 life trajectory activity categories (e.g., birth/death, education, career) from [1] as edge labels and map the original Wikipedia text of triplets to describe the specific activities of individuals at locations. The WikiLife dataset is structured as a bipartite DyTAG, where persons and locations are nodes with textual features, and an edge represents a person's textual life trajectory activity in a location at a given time.
 
 #### References
-[1] Jiacheng Li, Jingbo Shang, and Julian J. McAuley. Uctopic: Unsupervised contrastive learning for phrase representations and topic mining. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), ACL 2022, Dublin, Ireland, May 22-27, 2022, pp. 6159–6169, 2022. doi: 10.18653/V1/2022.ACL-LONG.426. 
-
-[2] An Yan, Zhankui He, Jiacheng Li, Tianyang Zhang, and Julian McAuley. Personalized showcases: Generating multi-modal explanations for recommendations. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval, pp. 2251–2255, 2023.
+[1] Ying Zhang, Xiaofeng Li, Zhaoyang Liu, and Haipeng Zhang. Paths of a million people: Extracting life trajectories from wikipedia, 2024.
 
 ---
-## Flickr
-**Graph**: `Flickr` [1] is a "Who-To-Follow" social network dataset derived from Flickr, a photo-sharing platform with social networking features. 
-The dataset was crawled daily from November 2 to December 3, 2006, and from February 3 to March 18, 2007 by [1]. It is estimated to represent 25% of the entire Flickr network. The Flickr dataset is a non-bipartite graph where users are nodes, and an edge represents the friendship established between users at a given time. 
 
-**Task**: The task is to predict whether a given user will follow another specified user at a particular time.
+## IMDB
+`IMDB` [1] is a dataset based on IMDB's official data, documenting actor/actress collaboration networks. The temporal span ranges from 1988 to 2031 (including collaboration information of official future films like Avatar 3). The dataset includes actors' and actresses' names, birth/death years, primary professions, and extra biographical information crawled from Wikipedia to enrich node textual features. Edge categories correspond to 20 types of movie genres (e.g., comedy, drama, crime, action), with edge texts comprising the title of the collaborated movie and roles played by actors/actresses, respectively. The IMDB dataset is a non-bipartite DyTAG, where actors/actresses are nodes with textual features, and an edge represents a movie collaboration relationship between them at a given time.
 
 #### References
-[1] Meeyoung Cha, Alan Mislove, and Krishna P Gummadi. A measurement-driven analysis of information propagation in the flickr social network. In Proceedings of the 18th international conference on World wide web, pp. 721–730, 2009.
+[1] https://datasets.imdbws.com/
 
 ---
-## YouTube
-**Graph**: `YouTube`[1] is a "Who-To-Follow" social network dataset derived from YouTube, a video-sharing platform that includes a user subscription network. The YouTube dataset is a non-bipartite graph where users are nodes, and an edge indicates the subscription of a user to another user at a given time.
 
-**Task**: The task is to predict whether a given user will follow another specified user at a particular time.
+## WeiboTech
+`WeiboTech` [1] is a dataset collected from the Weibo social platform, recording user interactions (comments and reposts). The temporal span ranges from December 29, 2023, to January 5, 2024. The original dataset [1] focuses on advertising strategies for electric toothbrushes. We reprocess the raw data to extract temporal information and restructure it into the DyTAG format. The dataset includes user profiles (e.g., usernames, gender, regions, follower/followee counts, self-introductions) and interaction edges categorized as comment or repost, with edge texts comprising source post content and destination user comments/reposts. Named WeiboTech due to its focus on technology-related topics (e.g., electronics, automobiles), the dataset is a non-bipartite DyTAG, where Weibo users are nodes with textual features, and an edge represents user interactions at a given time.
 
 #### References
-[1] Alan Mislove, Massimiliano Marcon, Krishna P Gummadi, Peter Druschel, and Bobby Bhattacharjee. Measurement and analysis of online social networks. In Proceedings of the 7th ACM SIGCOMM conference on Internet measurement, pp. 29–42, 2007.
+[1] Xiaoqing Zhang, Xiuying Chen, Yuhan Liu, Jianzhou Wang, Zhenxing Hu, and Rui Yan. Sagraph: A large-scale text-rich social graph dataset for advertising campaigns, 2024.528
 
 ---
-## Patent
-**Graph**: `Patent`[1] is a citation network dataset of U.S. patents, capturing the citation relationships between patents from 1963 to 1999. The dataset is organized as a non-bipartite graph where patents are nodes, and an edge represents a citation made by one patent to another at the time of publication. 
 
-**Task**: The task is to predict whether a given patent will cite another given patent, given several of their established citations.
+## WeiboDaily
+`WeiboDaily` [1] is also a dataset collected from the Weibo social platform, recording user interactions (comments and reposts). Different from WeiboTech, the temporal span ranges from December 1, 2023, to December 31, 2023, and the original dataset [1] focuses on advertising strategies for ABCReading. Thus, WeiboDaily spans a full month and targets daily life topics (e.g., lifestyle sharing), enabling continuous modeling analysis. Similarly, the dataset includes user profiles (e.g., usernames, gender, regions, follower/followee counts, self-introductions) and interaction edges categorized as comment or repost, with edge texts comprising source post content and destination user comments/reposts. The dataset is a non-bipartite DyTAG, where Weibo users are nodes with textual features, and an edge represents user interactions at a given time.
 
 #### References
-[1] Bronwyn H Hall, Adam B Jaffe, and Manuel Trajtenberg. The nber patent citation data file: Lessons, insights and methodological tools, 2001.
+[1] Xiaoqing Zhang, Xiuying Chen, Yuhan Liu, Jianzhou Wang, Zhenxing Hu, and Rui Yan. Sagraph: A large-scale text-rich social graph dataset for advertising campaigns, 2024.528
 
 ---
-## WikiLink
-**Graph**: `WikiLink`[1,2] is a web link network dataset derived from Wikipedia, containing the hyperlink relationships between Wikipedia pages. This dataset is a non-bipartite graph, where pages are nodes and edges indicate hyperlinks established from one page to another at a given time. 
 
-**Task**: The task is to predict whether a given page will link to another given page at a given time.
+## Cora
+`Cora` is an extended version of the classic citation network dataset Cora [1], documenting academic paper citation relationships. The temporal span ranges from February 1, 1985, to September 1, 2024. The original Cora dataset records citation relationships and node categories [1]. We expand the dataset by crawling first-order and second-order paper information via references, enriching the size of the citation network. Node textual features include paper titles, abstracts, authors, and citation counts. Edge texts are extracted from the exact sentence in the citing paper that references the cited paper. With regards to the edge labels, based on the section name of each citation in the citing paper, they are mapped to five categories: 1) Intro \& Background, 2) Tech \& Methodology, 3) Experiment \& Conclusion, 4) Topic-specific, and 5) Others. The Cora dataset is a non-bipartite DyTAG, where papers are nodes with textual features, and an edge indicates a citation relationship at a given time.
 
 #### References
-[1] Paolo Boldi, Bruno Codenotti, Massimo Santini, and Sebastiano Vigna. Ubicrawler: A scalable fully distributed web crawler. Software: Practice and Experience, 34(8):711–726, 2004.
+[1] Prithviraj Sen, Galileo Namata, Mustafa Bilgic, Lise Getoor, Brian Galligher, and Tina Eliassi-Rad. Collective classification in network data. AI magazine, 29(3):93–93, 2008.
 
-[2] Paolo Boldi, Marco Rosa, Massimo Santini, and Sebastiano Vigna. Layered label propagation: A multiresolution coordinate-free ordering for compressing social networks. In Proceedings of the 20th international conference on World Wide Web, pp. 587–596, 2011.
+---
