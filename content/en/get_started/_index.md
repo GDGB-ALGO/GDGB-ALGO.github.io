@@ -37,9 +37,9 @@ pip install agentscope\[distributed\] v0.0.4 from https://github.com/modelscope/
 
 **2. Prepare GDGB Dataset**
 
-Our proposed GDGB comprises eight carefully selected and rigorously processed DyTAG datasets, hosted through a **[private anonymous link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)** on Kaggle, covering domains such as e-commerce recommendations, social networks, biographies of celebrities, citation networks, and movie collaboration networks. All datasets include nodes and edges endowed with rich semantic textual information. Thus, the newly proposed datasets resolve many key problems associated with previous dynamic graph datasets, such as poor quality of textual features, which subsequently results in the inability to support DyTAG generation tasks. For more details of our datasets, please see our submitted manuscript.
+Our proposed GDGB comprises eight carefully selected and rigorously processed DyTAG datasets, hosted through a **[sharing link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)** on Kaggle, covering domains such as e-commerce recommendations, social networks, biographies of celebrities, citation networks, and movie collaboration networks. All datasets include nodes and edges endowed with rich semantic textual information. Thus, the newly proposed datasets resolve many key problems associated with previous dynamic graph datasets, such as poor quality of textual features, which subsequently results in the inability to support DyTAG generation tasks. For more details of our datasets, please see our submitted manuscript.
 
-To get our GDGB datasets from **[private anonymous link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)**, please firstly click “Download” and choose “Download dataset as zip”, then put the datasets at GDGB/GDGB_dataset and unzip it.
+To get our GDGB datasets from the **[sharing link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)**, please firstly click “Download” and choose “Download dataset as zip”, then put the datasets at GDGB/GDGB_dataset and unzip it.
 For each GDGB dataset, it contains two csv files (node_{datase_tname}.csv and edge_{dataset_name}.csv).
 
 Format like

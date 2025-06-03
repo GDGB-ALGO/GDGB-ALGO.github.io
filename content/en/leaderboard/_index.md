@@ -33,75 +33,68 @@ As our proposed GAG-General is an LLM-based multi-agent generative framework, fo
 
 ---
 
-# TDGG
 
-## Sephora {#Sephora}
+## Sephora (TDGG) {#Sephora}
 
 {{< table file="Sephora_leaderboard_TDGG.md" >}}
 
-## Dianping {#Dianping}
-
-{{< table file="Dianping_leaderboard_TDGG.md" >}}
-
-## WikiRevision {#WikiRevision}
-
-{{< table file="WikiRevision_leaderboard_TDGG.md" >}}
-
-## WikiLife {#WikiLife}
-
-{{< table file="WikiLife_leaderboard_TDGG.md" >}}
-
-## IMDB {#IMDB}
-
-{{< table file="IMDB_leaderboard_TDGG.md" >}}
-
-## WeiboTech {#WeiboTech}
-
-{{< table file="WeiboTech_leaderboard_TDGG.md" >}}
-
-## WeiboDaily {#WeiboDaily}
-
-{{< table file="WeiboDaily_leaderboard_TDGG.md" >}}
-
-## Cora {#Cora}
-
-{{< table file="Cora_leaderboard_TDGG.md" >}}
-
-
-
----
-
-# IDGG
-
-## Sephora {#Sephora}
+## Sephora (IDGG) {#Sephora}
 
 {{< table file="Sephora_leaderboard_IDGG.md" >}}
 
-## Dianping {#Dianping}
+## Dianping (TDGG) {#Dianping}
+
+{{< table file="Dianping_leaderboard_TDGG.md" >}}
+
+## Dianping (IDGG) {#Dianping}
 
 {{< table file="Dianping_leaderboard_IDGG.md" >}}
 
-## WikiRevision {#WikiRevision}
+## WikiRevision (TDGG) {#WikiRevision}
+
+{{< table file="WikiRevision_leaderboard_TDGG.md" >}}
+
+## WikiRevision (IDGG) {#WikiRevision}
 
 {{< table file="WikiRevision_leaderboard_IDGG.md" >}}
 
-## WikiLife {#WikiLife}
+## WikiLife (TDGG) {#WikiLife}
+
+{{< table file="WikiLife_leaderboard_TDGG.md" >}}
+
+## WikiLife (IDGG) {#WikiLife}
 
 {{< table file="WikiLife_leaderboard_IDGG.md" >}}
 
-## IMDB {#IMDB}
+## IMDB (TDGG) {#IMDB}
+
+{{< table file="IMDB_leaderboard_TDGG.md" >}}
+
+## IMDB (IDGG) {#IMDB}
 
 {{< table file="IMDB_leaderboard_IDGG.md" >}}
 
-## WeiboTech {#WeiboTech}
+## WeiboTech (TDGG) {#WeiboTech}
+
+{{< table file="WeiboTech_leaderboard_TDGG.md" >}}
+
+## WeiboTech (IDGG) {#WeiboTech}
 
 {{< table file="WeiboTech_leaderboard_IDGG.md" >}}
 
-## WeiboDaily {#WeiboDaily}
+## WeiboDaily (TDGG) {#WeiboDaily}
+
+{{< table file="WeiboDaily_leaderboard_TDGG.md" >}}
+
+## WeiboDaily (IDGG) {#WeiboDaily}
 
 {{< table file="WeiboDaily_leaderboard_IDGG.md" >}}
 
-## Cora {#Cora}
+## Cora (TDGG) {#Cora}
+
+{{< table file="Cora_leaderboard_TDGG.md" >}}
+
+## Cora (IDGG) {#Cora}
 
 {{< table file="Cora_leaderboard_IDGG.md" >}}
 

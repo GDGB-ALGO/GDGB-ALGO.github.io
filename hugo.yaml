@@ -247,7 +247,7 @@ menu:
       url: /team/
     - name: Paper
       weight: 40
-      url: https://openreview.net/forum?id=8e2LirwiJT
+      url: https://github.com/Lucas-PJ/GDGB-ALGO
     - name: GitHub
       weight: 60
-      url: https://github.com/GDGB-ALGO/GDGB-ALGO
+      url: https://github.com/Lucas-PJ/GDGB-ALGO
