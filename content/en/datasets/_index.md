@@ -3,6 +3,11 @@ title: Datasets
 linkTitle: Datasets
 menu: {main: {weight: 10}}
 ---
+
+Our proposed GDGB comprises eight carefully selected and rigorously processed DyTAG datasets, hosted through a **[sharing link](https://kaggle.com/datasets/f5e51c13e31f34cc84177d121c5902e0076c826d24e40414186024232e62973e)** on Kaggle, covering domains such as e-commerce recommendations, social networks, biographies of celebrities, citation networks, and movie collaboration networks. All datasets include nodes and edges endowed with rich semantic textual information. Thus, the newly proposed datasets resolve many key problems associated with previous dynamic graph datasets, such as poor quality of textual features, which subsequently results in the inability to support DyTAG generation tasks. More details of our datasets are shown as follows.
+
+---
+
 ## Sephora
 `Sephora` [1] is a dataset collected from Kaggle, documenting user reviews of beauty and skincare products on the Sephora e-commerce platform. The temporal span of the dataset ranges from August 28, 2008, to March 21, 2023. Specifically, the dataset includes rich textual information about users, such as skin tone, skin type, hair color, eye color, and historical review statistics. 
 Notably, it also contains detailed textual features of beauty products from the Sephora online store, including product and brand names, prices, ingredients, ratings, and all associated attributes, which support the construction of textual features for nodes in this DyTAG. For user reviews of beauty and skincare products, the dataset provides review ratings (ranging from 1 to 5) as edge labels, and detailed textual reviews as edge content. Consequently, the Sephora dataset is represented as a bipartite DyTAG, where users and beauty products serve as nodes with textual features, and an edge represents a user's rating and textual review of a product at a given time.
