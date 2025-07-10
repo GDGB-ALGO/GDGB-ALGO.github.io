@@ -33,7 +33,7 @@ title: GDGB
                         <h3 class="mt-3">Tasks & Metrics</h3>
                     </div>
                     <p class="feature-text" style="text-align: justify;">GDGB introduces two novel DyTAG generation tasks: Transductive Dynamic Graph Generation (TDGG) and Inductive Dynamic Graph Generation (IDGG). Additionally, to ensure holistic evaluation, we design multifaceted metrics that jointly consider topological patterns, temporal dynamics, and semantic quality.</p>
-                    <a class="btn btn-secondary" href="https://github.com/Lucas-PJ/GDGB-ALGO" target="_blank">View Details</a>
+                    <a class="btn btn-secondary" href="http://arxiv.org/abs/2507.03267" target="_blank">View Details</a>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">

@@ -247,7 +247,7 @@ menu:
       url: /team/
     - name: Paper
       weight: 40
-      url: https://github.com/Lucas-PJ/GDGB-ALGO
+      url: http://arxiv.org/abs/2507.03267
     - name: GitHub
       weight: 60
       url: https://github.com/Lucas-PJ/GDGB-ALGO
